@@ -25,7 +25,7 @@ This is a deep-learning without transformer architectures approach.
 
 This model is based upon a Siamese model and a multi-headed co-attention mechanism that was trained on 21K pairs of texts and validated on 6K pairs of texts. 
 
-The textual inputs are first pre-processed by removing any instances of '[ref]', '[ref' and 'ref]'. Then every piece of text is encoded by Setence BERT into a 384 dimensional vector each, then passed onto a siamese encoder which is shared by both the claim and evidence embeddings to produce an embedding that is more relevant to the evidence detection task.
+The textual inputs are first pre-processed by removing any instances of '[ref]', '[ref' and 'ref]'. Then every piece of text is encoded by Setence BERT into a 384 dimensional vector each, and passed onto a siamese encoder which is shared by both the claim and evidence embeddings to produce an embedding that is more relevant to the evidence detection task.
 
 Then multi-headed co-attention mechanism models interactions between claims and evidence. This allows the claims to attend to the evidence, and vice versa, each element of one embedding can prioritise the information from different elements of the other embedding to create a more robust understanding before being passed onto a few dense layers before the final predictions using a sigmoid activation function.
 
