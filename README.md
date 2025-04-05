@@ -17,10 +17,10 @@ NLU-EvidenceDetection/
 ├── Group_7_B.csv                            # Test data predictions for deep learning model
 ├── Group_7_C.csv                            # Updated test files
 ├── README.md                                # This file
-├── modernbert_sbert_dual_embedding_model_card.md    # Model card for BERT model
-├── modernbert_sbert_embeddings.ipynb        # BERT embeddings training notebook
-├── modernbert_sbert_embeddings_evaluation.ipynb     # BERT model evaluation
-└── modernbert_sbert_embeddings_inference.ipynb      # BERT model inference
+├── modernbert_sbert_dual_embedding_model_card.md    # Model card for ModernBERT+SBERT model
+├── modernbert_sbert_embeddings.ipynb        # ModernBERT+SBERT embeddings training notebook
+├── modernbert_sbert_embeddings_evaluation.ipynb     # ModernBERT+SBERT model evaluation
+└── modernbert_sbert_embeddings_inference.ipynb      # ModernBERT+SBERT model inference
 ```
 
 ## Running the Notebooks
