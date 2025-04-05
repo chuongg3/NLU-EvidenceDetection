@@ -175,3 +175,9 @@ The model combines the strengths of ModernBERT's long context
       concatenates it with SBERT embeddings before passing through the classification layers.
 
       Hyperparameters were optimized using a systematic search process to find the optimal configuration.
+
+      Important references:
+
+      - QLoRA: Efficient Finetuning of Quantized LLMs (2023) - https://arxiv.org/abs/2305.14314
+      - Hugging Face 4-bit Transformers with bitsandbytes - https://huggingface.co/blog/4bit-transformers-bitsandbytes
+      - PEFT: Parameter-Efficient Fine-Tuning Documentation - https://huggingface.co/docs/peft/en/index
