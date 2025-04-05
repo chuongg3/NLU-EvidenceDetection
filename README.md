@@ -1,4 +1,12 @@
-# NLU-Evidence Detection
+## Development Notes
+
+The development of this repository benefited from:
+
+- **Generative AI Assistance**: Claude and other generative AI models were used for debugging, code improvements, and documentation generation.
+- **Hyperparameter Optimization**: Bayesian optimization with Optuna was used to fine-tune model parameters.
+- **Class Imbalance Handling**: The original training dataset had class imbalance (72% negative samples for the Siamese model), which was addressed through class weighting and data augmentation techniques.
+
+These tools and techniques were instrumental in achieving the reported performance metrics while maintaining efficient development workflows.# NLU-Evidence Detection
 
 This repository contains implementations of two different approaches for Natural Language Understanding (NLU) Evidence Detection:
 1. Co-Attention Siamese Deep Learning Model
@@ -61,6 +69,7 @@ The model achieved the following metrics on the development set:
 - Macro F1-Score: 80.12%
 - Macro Precision: 80.97%
 - Macro Recall: 79.40%
+- Weighted F1-Score: 84.27%
 
 The model was trained for 23 epochs with optimized hyperparameters determined through Bayesian optimization.
 
@@ -101,7 +110,8 @@ The model achieved the following metrics on the development set:
 - Macro F1-Score: 84.79%
 - Macro Precision: 83.76%
 - Macro Recall: 86.14%
-- Matthews Correlation Coefficient: 69.86%
+- Weighted F1-Score: 87.59%
+- Matthews Correlation Coefficient: 0.6986
 
 The model uses an optimal threshold of 0.5433 determined through validation data to convert probabilities to binary predictions.
 
