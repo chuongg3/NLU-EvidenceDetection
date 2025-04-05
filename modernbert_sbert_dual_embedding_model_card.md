@@ -172,7 +172,8 @@ The model combines the strengths of ModernBERT's long context
       4. Normalizing whitespace
 
       The model first extracts the [CLS] token embedding from ModernBERT, then 
-      concatenates it with SBERT embeddings before passing through the classification layers. The SBERT embeddings are extracted separately for Claim and Evidence and the combined by averaging before concatenation.
+      concatenates it with SBERT embeddings before passing through the classification layers. 
+      The SBERT embeddings are extracted separately for Claim and Evidence and the combined by averaging before concatenation.
 
       Hyperparameters were optimized using a systematic search process to find the optimal configuration.
 
