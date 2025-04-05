@@ -1,12 +1,4 @@
-## Development Notes
-
-The development of this repository benefited from:
-
-- **Generative AI Assistance**: Claude and other generative AI models were used for debugging, code improvements, and documentation generation.
-- **Hyperparameter Optimization**: Bayesian optimization with Optuna was used to fine-tune model parameters.
-- **Class Imbalance Handling**: The original training dataset had class imbalance (72% negative samples for the Siamese model), which was addressed through class weighting and data augmentation techniques.
-
-These tools and techniques were instrumental in achieving the reported performance metrics while maintaining efficient development workflows.# NLU-Evidence Detection
+# NLU-Evidence Detection
 
 This repository contains implementations of two different approaches for Natural Language Understanding (NLU) Evidence Detection:
 1. Co-Attention Siamese Deep Learning Model
@@ -31,6 +23,15 @@ NLU-EvidenceDetection/
 └── modernbert_sbert_embeddings_inference.ipynb      # BERT model inference
 ```
 
+## Running the Notebooks
+
+Each notebook in this repository contains its own dependency installation cells at the beginning that will install the specific packages needed for that particular notebook. This makes it easier to run individual notebooks without needing to install all dependencies for the entire repository.
+
+When running the notebooks:
+1. Execute the dependency installation cells first
+2. The notebooks are self-contained with all necessary code and instructions
+3. Dependencies may vary between notebooks based on specific requirements
+
 ## Model 1: Co-Attention Siamese Deep Learning Model
 
 ### Overview
@@ -48,11 +49,12 @@ This model utilizes a Siamese neural network architecture with co-attention mech
 
 1. **Setup Environment**:
    ```bash
-   pip install tensorflow keras numpy pandas scikit-learn matplotlib
+   pip install tensorflow==2.17.0 numpy==1.26.4 pandas==2.2.3 scikit-learn==1.5.2 sentence-transformers==3.4.1 regex==2024.9.11 optuna==4.1.0
    ```
 
 2. **Training**:
    - Open `CoAttentionSiameseDeepLearning.ipynb` in Jupyter Notebook or Google Colab
+   - Run the dependency installation cells at the beginning of the notebook
    - Follow the instructions to load training data and train the model
    - The trained model will be saved as `.keras` file
 
@@ -85,17 +87,20 @@ This model leverages pre-trained BERT models (specifically Sentence-BERT) to cre
   - Normalizes accented characters using unidecode
   - Cleans irregular spacing around punctuation
   - Normalizes whitespace
-- **Training Approach**: Fine-tuned using QLoRA (Quantized Low-Rank Adaptation) with 4-bit quantization and flash-attention for efficiency
+- **Training Approach**: 
+  - Fine-tuned using QLoRA (Quantized Low-Rank Adaptation) with 4-bit quantization and flash-attention for efficiency
+  - Uses both synonym replacement and class weights to address class imbalance
 
 ### How to Run
 
 1. **Setup Environment**:
    ```bash
-   pip install transformers sentence-transformers torch pandas numpy scikit-learn matplotlib
+   pip install torch==2.6.0+cu126 transformers peft bitsandbytes flash-attn sentence-transformers sklearn numpy pandas unidecode
    ```
 
 2. **Training/Fine-tuning**:
    - Open `modernbert_sbert_embeddings.ipynb` in Jupyter Notebook or Google Colab
+   - Run the dependency installation cells at the beginning of the notebook
    - Follow the notebook to load data and fine-tune the model
 
 3. **Evaluation**:
@@ -120,18 +125,27 @@ The model uses an optimal threshold of 0.5433 determined through validation data
 ### Training Data
 - The training data is located in the `training_data/` directory
 - The dataset consists of 30K pairs of texts drawn from emails, news articles, and blog posts
-- For the Siamese model, 21K pairs were used for training and 6K for validation
-- For the ModernBERT model, data augmentation was applied to the positive class (minority) using synonym replacement to address class imbalance
+- For the Siamese model, 21K pairs were used for training and 6K for validation with class weighting to handle imbalance (72% negative samples)
+- For the ModernBERT model, both class weighting and data augmentation (synonym replacement for the positive class) were applied to address class imbalance
 
 ### Pre-trained Models
 - Both models utilize Sentence-BERT embeddings from `all-MiniLM-L6-v2`
 - The ModernBERT implementation also uses the [ModernBERT-base](https://huggingface.co/answerdotai/ModernBERT-base) model from HuggingFace
 
 ### Cloud-stored Models
-- Full trained models are stored on OneDrive due to size constraints:
-  - Siamese Model: [OneDrive Link](https://onedrive.com/link/to/siamese/model)
-  - BERT Model: [OneDrive Link](https://onedrive.com/link/to/bert/model)
-  - *Note: Replace with actual OneDrive links*
+- The ModernBERT implementation is stored on HuggingFace:
+  - DualEncoderModernBERT: [https://huggingface.co/ddosdub/DualEncoderModernBERT](https://huggingface.co/ddosdub/DualEncoderModernBERT)
+- The Co-Attention Siamese model is stored in the GitHub repository itself: [https://github.com/chuongg3/NLU-EvidenceDetection](https://github.com/chuongg3/NLU-EvidenceDetection)
+
+## Development Notes
+
+The development of this repository benefited from:
+
+- **Generative AI Assistance**: Claude and other generative AI models were used for debugging, code improvements, and documentation generation.
+- **Hyperparameter Optimization**: Bayesian optimization with Optuna was used to fine-tune model parameters.
+- **Class Imbalance Handling**: The original training dataset had class imbalance (72% negative samples for the Siamese model), which was addressed through class weighting and data augmentation techniques.
+
+These tools and techniques were instrumental in achieving the reported performance metrics while maintaining efficient development workflows.
 
 ## Citation
 
@@ -163,11 +177,13 @@ For the Co-Attention mechanism implementation, please also cite:
 For the ModernBERT model, please cite:
 ```
 @misc{modernbert,
-  author = {Answer.ai},
-  title = {ModernBERT},
-  year = {2023},
-  publisher = {Hugging Face},
-  howpublished = {\url{https://huggingface.co/answerdotai/ModernBERT-base}}
+  title={Smarter, Better, Faster, Longer: A Modern Bidirectional Encoder for Fast, Memory Efficient, and Long Context Finetuning and Inference}, 
+  author={Benjamin Warner and Antoine Chaffin and Benjamin Clavié and Orion Weller and Oskar Hallström and Said Taghadouini and Alexis Gallagher and Raja Biswas and Faisal Ladhak and Tom Aarsen and Nathan Cooper and Griffin Adams and Jeremy Howard and Iacopo Poli},
+  year={2024},
+  eprint={2412.13663},
+  archivePrefix={arXiv},
+  primaryClass={cs.CL},
+  url={https://arxiv.org/abs/2412.13663}
 }
 ```
 
