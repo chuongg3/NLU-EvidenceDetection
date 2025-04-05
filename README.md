@@ -4,6 +4,9 @@ This repository contains implementations of two different approaches for Natural
 1. Co-Attention Siamese Deep Learning Model
 2. ModernBERT SBERT Dual Embedding Model
 
+## Problem Statement
+Given a claim and a piece of evidence, determine if the evidence is relevant to the claim.
+
 ## Repository Structure
 
 ```
