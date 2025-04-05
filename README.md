@@ -187,10 +187,10 @@ For the ModernBERT model, please cite:
 }
 ```
 
+<!---
 ## License
 This project is licensed under the CC-BY-4.0 License - see the LICENSE file for details.
 
-<!---
 ## Acknowledgments
 - The Sentence-BERT team for their pre-trained models
 - Answer.ai for the ModernBERT-base model
