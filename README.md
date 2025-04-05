@@ -141,7 +141,7 @@ The model uses an optimal threshold of 0.5433 determined through validation data
 
 The development of this repository benefited from:
 
-- **Generative AI Assistance**: Claude and other generative AI models were used for debugging, code improvements, and documentation generation.
+- **Generative AI Assistance**: Claude and other generative AI models were used for debugging, code improvements and document proof-reading and improvements.
 - **Hyperparameter Optimization**: Bayesian optimization with Optuna was used to fine-tune model parameters.
 - **Class Imbalance Handling**: The original training dataset had class imbalance (72% negative samples for the Siamese model), which was addressed through class weighting and data augmentation techniques.
 
