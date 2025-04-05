@@ -25,12 +25,19 @@ NLU-EvidenceDetection/
 
 ## Running the Notebooks
 
-Each notebook in this repository contains its own dependency installation cells at the beginning that will install the specific packages needed for that particular notebook. This makes it easier to run individual notebooks without needing to install all dependencies for the entire repository.
+Each notebook in this repository has its own dependency installation cells at the beginning that will install the specific packages needed for that particular notebook. 
+This makes it easier to run individual notebooks without needing to install all dependencies for the entire repository without having any conflicting dependencies.
+
+If running on a local machine, it is recommended to first create a virtual environment before running the notebook as to not interfere with global dependencies.
+
+Example of creating a virtual environment in the current directory:
+```bash
+python -m venv .venv
+```
 
 When running the notebooks:
 1. Execute the dependency installation cells first
-2. The notebooks are self-contained with all necessary code and instructions
-3. Dependencies may vary between notebooks based on specific requirements
+2. The notebooks should be self-contained with all necessary code and instructions
 
 ## Model 1: Co-Attention Siamese Deep Learning Model
 
@@ -75,10 +82,10 @@ The model achieved the following metrics on the development set:
 
 The model was trained for 23 epochs with optimized hyperparameters determined through Bayesian optimization.
 
-## Model 2: ModernBERT SBERT Dual Embedding Model
+## Model 2: ModernBERT + SBERT Dual Embedding Model
 
 ### Overview
-This model leverages pre-trained BERT models (specifically Sentence-BERT) to create embeddings for text pairs and then determines evidence relationships using these embeddings.
+This model leverages pre-trained BERT models (specifically Sentence-BERT and ModernBERT) to create embeddings for text pairs and then determines evidence relationships using these embeddings.
 
 ### Model Architecture
 - **Dual Embedding Approach**: Combines contextualized embeddings from ModernBERT-base with sentence embeddings from SBERT (all-MiniLM-L6-v2)
@@ -133,6 +140,7 @@ The model uses an optimal threshold of 0.5433 determined through validation data
 - The ModernBERT implementation also uses the [ModernBERT-base](https://huggingface.co/answerdotai/ModernBERT-base) model from HuggingFace
 
 ### Cloud-stored Models
+The weights of the models are stored as follows:
 - The ModernBERT implementation is stored on HuggingFace:
   - DualEncoderModernBERT: [https://huggingface.co/ddosdub/DualEncoderModernBERT](https://huggingface.co/ddosdub/DualEncoderModernBERT)
 - The Co-Attention Siamese model is stored in the GitHub repository itself: [https://github.com/chuongg3/NLU-EvidenceDetection](https://github.com/chuongg3/NLU-EvidenceDetection)
@@ -142,8 +150,8 @@ The model uses an optimal threshold of 0.5433 determined through validation data
 The development of this repository benefited from:
 
 - **Generative AI Assistance**: Claude and other generative AI models were used for debugging, code improvements and document proof-reading and improvements.
-- **Hyperparameter Optimization**: Bayesian optimization with Optuna was used to fine-tune model parameters.
-- **Class Imbalance Handling**: The original training dataset had class imbalance (72% negative samples for the Siamese model), which was addressed through class weighting and data augmentation techniques.
+- **Hyperparameter Optimization**: Bayesian optimization with Optuna was used to fine-tune model parameters with Trial Pruning (automated early stopping).
+- **Class Imbalance Handling**: The original training dataset had class imbalance, which was addressed through class weighting and data augmentation techniques.
 
 These tools and techniques were instrumental in achieving the reported performance metrics while maintaining efficient development workflows.
 
