@@ -17,8 +17,8 @@ NLU-EvidenceDetection/
 ├── CoAttentionSiameseEvaluation.ipynb       # Evaluation notebook for Siamese model
 ├── CoAttentionSiameseInference.ipynb        # Inference notebook for Siamese model
 ├── CoAttentionSiamese_model_card.md         # Model card with details for Siamese model
-├── Group_7_B.csv                            # Test data predictions for deep learning model
-├── Group_7_C.csv                            # Updated test files
+├── Group_7_B.csv                            # Test data predictions for non-transformer model
+├── Group_7_C.csv                            # Test data predictions for transformer model
 ├── README.md                                # This file
 ├── modernbert_sbert_dual_embedding_model_card.md    # Model card for ModernBERT+SBERT model
 ├── modernbert_sbert_embeddings.ipynb        # ModernBERT+SBERT embeddings training notebook
