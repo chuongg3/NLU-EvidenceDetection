@@ -150,14 +150,13 @@ The weights of the models are stored as follows:
 - The Co-Attention Siamese model is stored in the GitHub repository itself: [https://github.com/chuongg3/NLU-EvidenceDetection](https://github.com/chuongg3/NLU-EvidenceDetection)
 
 ## Development Notes
-
-The development of this repository benefited from:
-
-- **Generative AI Assistance**: Claude and other generative AI models were used for debugging, code improvements and document proof-reading and improvements.
+These tools and techniques were instrumental in achieving the reported performance metrics while maintaining efficient development workflows:
 - **Hyperparameter Optimization**: Bayesian optimization with Optuna was used to fine-tune model parameters with Trial Pruning (automated early stopping).
 - **Class Imbalance Handling**: The original training dataset had class imbalance, which was addressed through class weighting and data augmentation techniques.
 
-These tools and techniques were instrumental in achieving the reported performance metrics while maintaining efficient development workflows.
+### Use of Generative AI Tools
+Claude and other generative AI models were used for debugging and document proof-reading and improvements.
+
 
 ## Citation
 
