@@ -23,7 +23,8 @@ NLU-EvidenceDetection/
 ├── modernbert_sbert_dual_embedding_model_card.md    # Model card for ModernBERT+SBERT model
 ├── modernbert_sbert_embeddings.ipynb        # ModernBERT+SBERT embeddings training notebook
 ├── modernbert_sbert_embeddings_evaluation.ipynb     # ModernBERT+SBERT model evaluation
-└── modernbert_sbert_embeddings_inference.ipynb      # ModernBERT+SBERT model inference
+├── modernbert_sbert_embeddings_inference.ipynb      # ModernBERT+SBERT model inference
+└── poster.pdf                               # Poster for information regarding both models and results
 ```
 
 ## Running the Notebooks
